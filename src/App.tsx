@@ -1,13 +1,14 @@
-import './App.css';
-import CustomTable from './components/Table';
+import "./styles/index.css";
+import { Navbar } from "./components/navbar";
+import MainRouter from "./routes/MainRouter";
+import CustomTable from './components/table';
 
-function App() {
-
+export const App = () => {
   return (
     <>
+      <Navbar></Navbar>
+      <MainRouter></MainRouter>
       <CustomTable></CustomTable>
     </>
-  )
-}
-
-export default App
+  );
+};

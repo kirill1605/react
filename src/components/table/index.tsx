@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-import { useLoading } from '../hooks/useLoading';
+import { useLoading } from '../../hooks/useLoading';
 
 interface DataType {
   country: string;
