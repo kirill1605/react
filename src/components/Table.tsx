@@ -1,94 +1,71 @@
-import React from 'react';
-import { Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Table, Button } from 'antd';
+import { ColumnsType } from 'antd/lib/table';
+import { useLoading } from '../hooks/useLoading';
 
 interface DataType {
-  key: string;
+  country: string;
   name: string;
-  age: number;
-  address: string;
-  tags: string[];
 }
 
 const columns: ColumnsType<DataType> = [
   {
-    title: 'Name',
+    title: 'Страна',
+    dataIndex: 'country',
+    key: 'country',
+  },
+  {
+    title: 'Название школы',
     dataIndex: 'name',
     key: 'name',
   },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 7 ? 'geekblue' : 'green';
-          if (tag === 'злой') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Пригласить {record.name}</a>
-        <a>Удалить</a>
-      </Space>
-    ),
-  },
 ];
 
-const data: DataType[] = [
-  {
-    key: '1',
-    name: 'Иванов Иван',
-    age: 21,
-    address: 'Кремлёвская набережная, 1, стр. 3',
-    tags: ['добрый', 'разработчик'],
-  },
-  {
-    key: '2',
-    name: 'Винник Дмитрий',
-    age: 32,
-    address: 'Преображенская улица, 132',
-    tags: ['алкоголик'],
-  },
-  {
-    key: '3',
-    name: 'Алексеев Михаил',
-    age: 32,
-    address: 'Рижский проезд, 15, к. 2',
-    tags: ['злой'],
-  },
-  {
-    key: '4',
-    name: 'Ульянов Владимир',
-    age: 53,
-    address: 'Красная площадь, 9,',
-    tags: ['рабочий'],
-  },
-];
+const PaginationComponent: React.FC = () => {
+  const [data, setData] = useState<DataType[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const limit: number = 10;
+  const { setLoading } = useLoading();
 
-const CustomTable: React.FC = () => <Table columns={columns} dataSource={data} />;
+  useEffect(() => {
+    fetchData();
+  }, [page]);
 
-export default CustomTable;
+  const fetchData = async () => {
+    const offset = (page - 1) * limit;
+    try {
+      setLoading(true);
+      const response = await axios.get(`http://universities.hipolabs.com/search?offset=${offset}&limit=${limit}`);
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+      setLoading(false)
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const offset = (page - 1) * limit;
+
+  return (
+    <>
+      <Table dataSource={data} columns={columns} pagination={false} />
+      <Button onClick={handlePrevPage} disabled={!offset}>Назад</Button>
+      <Button onClick={handleNextPage}>Вперед</Button>
+      <span>Страница: {page}</span>
+    </>
+  );
+};
+
+export default PaginationComponent;
