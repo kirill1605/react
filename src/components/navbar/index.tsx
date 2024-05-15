@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
-import { ABOUT_ROUTE, CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE } from "../../routes/configs";
+import { ABOUT_ROUTE, CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, PDF_ROUTE } from "../../routes/configs";
 import { useAuth } from "../../hooks/useAuth";
 
 const Navigation = styled.nav`
@@ -37,6 +37,7 @@ export const Navbar = () => {
         <NavLink className={'link'} to={ABOUT_ROUTE}>About</NavLink>
         <NavLink className={'link'} to={CONTACTS_ROUTE}>Contacts</NavLink>
         {isAuth && <NavLink className={'link'} to={PRODUCTS_ROUTE}>Products</NavLink>}
+        <NavLink className={'link'} to={PDF_ROUTE}>PDF</NavLink>
         <Button onClick={handleLogin}>{!isAuth ? 'Войти' : 'Выйти'}</Button>
       </Navigation>
     </header>

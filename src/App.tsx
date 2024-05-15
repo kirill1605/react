@@ -2,7 +2,7 @@ import "./styles/index.css";
 import { Navbar } from "./components/navbar";
 import MainRouter from "./routes/MainRouter";
 import CustomTable from './components/table';
-import { Form } from "./components/pages/form";
+import { Form } from "./components/pages/form/form";
 
 export const App = () => {
   return (
