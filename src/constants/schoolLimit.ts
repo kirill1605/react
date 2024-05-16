@@ -1,1 +1,1 @@
-export const LIMIT_LIST_SCHOOL = 25
+export const LIMIT_LIST_SCHOOL = 25;
