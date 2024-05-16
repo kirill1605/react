@@ -1,11 +1,11 @@
 import React from 'react'
 import { RouteObject, useRoutes } from "react-router-dom";
 import { About } from '../components/pages/about/about';
-import { Contacts } from '../components/pages/contacts/contacts';
 import { Home } from '../components/pages/home/home';
 import { Products } from '../components/pages/products/products';
 import { Pdf } from "../components/pages/pdf/index.tsx";
-import { ABOUT_ROUTE, CONTACTS_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, PDF_ROUTE } from './configs';
+import { DynamicPagination } from "../components/pages/DynamicPagination/index.tsx";
+import { ABOUT_ROUTE, HOME_ROUTE, PRODUCTS_ROUTE, PDF_ROUTE, PAGINATION_ROUTE } from './configs';
 import { useAuth } from '../hooks/useAuth';
 
 const MainRouter: React.FC = () => {
@@ -13,9 +13,9 @@ const MainRouter: React.FC = () => {
 
   const basedPath: RouteObject[] = [
     { path: ABOUT_ROUTE, element: <About /> },
-    { path: CONTACTS_ROUTE, element: <Contacts /> },
     { path: HOME_ROUTE, element: <Home /> },
     { path: PDF_ROUTE, element: <Pdf /> },
+    { path: PAGINATION_ROUTE, element: <DynamicPagination /> },
   ];
 
   const authPath: RouteObject[] = isAuth
