@@ -34,6 +34,7 @@ export const Pdf = () => {
 
   return (
     <>
+      <h1>PDF</h1>
       <SiteForm onSubmit={handleSubmit(generatePdfFile)}>
         <FormLabel>
           Имя:
