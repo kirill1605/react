@@ -33,9 +33,11 @@ export const useDynamicPagination = () => {
 
 	useEffect(() => {
 		if (inView) {
-			setCurrentPage(prev => prev + 1)
+				setTimeout(() => {
+						setCurrentPage(prev => prev + 1)
+				}, 3000)
 		}
-	}, [inView])
+}, [inView])
 
 	return { universitiesData, loading, ref }
 }
