@@ -7,6 +7,7 @@ export const DynamicPagination = () => {
 
   return (
     <>
+      <h1>Pagination</h1>
       <PaginationWrapper>
         <CardWrapper>
           {universitiesData?.length > 0 &&
