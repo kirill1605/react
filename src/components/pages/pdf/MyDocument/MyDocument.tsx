@@ -1,6 +1,6 @@
-import { Document, Page, Text, View, Image } from '@react-pdf/renderer'
-import { FC } from 'react'
-import { styles } from './styles'
+import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
+import { FC } from "react";
+import { styles } from "./styles";
 import { IFormPDF } from "../../../../interfaces/IFormPDF";
 
 const PDFDocument: FC<IFormPDF> = ({ name, picture }) => {
@@ -24,4 +24,4 @@ const PDFDocument: FC<IFormPDF> = ({ name, picture }) => {
   );
 };
 
-export default PDFDocument
+export default PDFDocument;
