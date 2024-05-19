@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const FormInput = styled.input`
   color: --text-color;
   padding: 0.7rem 1.7rem;
   margin: 5px;
   border-radius: 10px;
-`
+`;
 export const SiteForm = styled.form`
   color: --text-color;
   display: flex;
@@ -15,11 +15,11 @@ export const SiteForm = styled.form`
   gap: 10px;
 `;
 
-export const FormLabel  = styled.label`
+export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`
+`;
 export const FormButton = styled.button`
   color: --text-color;
   padding: 0.5rem 1rem;
@@ -27,9 +27,9 @@ export const FormButton = styled.button`
   border-radius: 5px;
   font-size: 17px;
   &:hover {
-    opacity: .7;
+    opacity: 0.7;
   }
-  &:disabled{
-    opacity: .2;
+  &:disabled {
+    opacity: 0.2;
   }
-`
+`;
