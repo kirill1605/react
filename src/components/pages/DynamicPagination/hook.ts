@@ -31,11 +31,5 @@ export const useDynamicPagination = () => {
     threshold: 1.0,
   });
 
-  useEffect(() => {
-    if (inView) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  }, [inView]);
-
   return { universitiesData, loading, ref };
 };
