@@ -16,7 +16,7 @@ const PDFDocument: FC<IFormPDF> = ({ name, picture }) => {
           </View>
           <View style={styles.section}>
             <Text>Picture:</Text>
-            {picture && <Image source={picture} style={styles.picture} />}
+{picture && <Image source={picture[0]} style={styles.picture} />}
           </View>
         </Page>
       </Document>

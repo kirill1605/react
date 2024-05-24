@@ -10,6 +10,14 @@ const SiteForm = styled.form`
   margin: 5rem auto;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 768px) {
+    max-width: 400px;
+    flex-direction: column;
+  }
+  @media (max-width: 425px) {
+    max-width: 280px;
+    flex-direction: column;
+  }
 `;
 
 const FormInput = styled.input`
@@ -17,6 +25,14 @@ const FormInput = styled.input`
   padding: 0.7rem 1.7rem;
   margin: 5px;
   border-radius: 10px;
+  @media (max-width: 768px) {
+    max-width: 360px;
+    flex-direction: column;
+  }
+  @media (max-width: 425px) {
+    max-width: 280px;
+    flex-direction: column;
+  }
 `;
 
 const FormButton = styled.button`
@@ -31,12 +47,28 @@ const FormButton = styled.button`
   &:disabled {
     opacity: 0.2;
   }
+  @media (max-width: 768px) {
+    max-width: 400px;
+    flex-direction: column;
+  }
+  @media (max-width: 425px) {
+    max-width: 280px;
+    flex-direction: column;
+  }
 `;
 
 const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media (max-width: 768px) {
+    max-width: 400px;
+    flex-direction: column;
+  }
+  @media (max-width: 425px) {
+    max-width: 280px;
+    flex-direction: column;
+  }
 `;
 
 export const Form: React.FC = () => {
