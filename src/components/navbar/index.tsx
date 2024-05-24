@@ -12,6 +12,11 @@ const Navigation = styled.nav`
   font-size: 18px;
   text-align: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    gap: 5px;
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
@@ -21,6 +26,13 @@ const Button = styled.button`
   border-radius: 10px;
   font-size: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    width: 100px;
+    height: 35px;
+    gap: 5px;
+  }
 `;
 
 export const Navbar = () => {

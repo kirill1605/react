@@ -14,7 +14,7 @@ export const useInfinite = () => {
     initialPageParam: 0,
     queryKey: ["universitiesData"],
     queryFn: fetchUniversities,
-    getNextPageParam: (lastPage, allPages) => allPages.length * LIMIT_LIST_SCHOOL,
+    getNextPageParam: (allPages) => allPages.length * LIMIT_LIST_SCHOOL,
   });
 
   const { ref, inView } = useInView({
